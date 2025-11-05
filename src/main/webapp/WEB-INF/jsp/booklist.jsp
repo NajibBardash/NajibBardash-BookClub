@@ -7,7 +7,7 @@
     <title>Book recommendation list</title>
 </head>
 <body>
-<h1>Book list</h1>
+<h1>Book recommendation list</h1>
 <ol>
     <c:forEach var="b" items="${bookList}">
         <li>${b}</li>
