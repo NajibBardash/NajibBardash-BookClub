@@ -39,11 +39,11 @@ public class BookController {
      * This is the endpoint for book-recommendations
      * @return ModelAndView with the hard-coded book list
      */
-    @RequestMapping("/booklist")
+    @RequestMapping("/books")
     public ModelAndView showBooks() {
         List<Book> bookList = books;
 
-        ModelAndView mav = new ModelAndView("booklist");
+        ModelAndView mav = new ModelAndView("books");
         mav.addObject("bookList", bookList);
 
         return mav;
