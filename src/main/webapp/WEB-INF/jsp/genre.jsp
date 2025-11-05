@@ -1,7 +1,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-
+<%-- This page shows a list of genres if no parameters are entered
+ If a parameter is entered, a book-list of the chosen genre is presented --%>
 <html>
 <head>
     <title>Book list by genre</title>

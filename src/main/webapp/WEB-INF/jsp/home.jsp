@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
+<%-- This is the home page that greets the user and show the current date and time --%>
 <html>
 <head>
     <title>Homepage of Book-club</title>

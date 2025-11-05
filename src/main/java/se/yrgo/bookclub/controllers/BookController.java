@@ -8,9 +8,13 @@ import se.yrgo.bookclub.domain.Book;
 
 import java.util.*;
 
+/**
+ * This class handles requests and provides endpoints for an online book-club.
+ */
 @Controller
 public class BookController {
 
+    // Hard codes a book list so that we can present some book recommendations
     private List<Book> books = List.of(
             new Book("1984", "George Orwell", "Classics"),
             new Book("Anna Karenina", "Leo Tolstoy", "Classics"),
@@ -20,6 +24,10 @@ public class BookController {
             new Book("Ben Franklin", "Walter Isaacson", "Biographics"),
             new Book("Aldrig Ensam, Alltid Ensam", "Erik Fichtelius", "Biographics"));
 
+    /**
+     * This is the endpoint for the home-page
+     * @return ModelAndView that passes along the current date and time
+     */
     @RequestMapping("/home")
     public ModelAndView welcome() {
         ModelAndView mav = new ModelAndView("home");
@@ -27,6 +35,10 @@ public class BookController {
         return mav;
     }
 
+    /**
+     * This is the endpoint for book-recommendations
+     * @return ModelAndView with the hard-coded book list
+     */
     @RequestMapping("/booklist")
     public ModelAndView showBooks() {
         List<Book> bookList = books;
@@ -37,18 +49,25 @@ public class BookController {
         return mav;
     }
 
+    /**
+     * This is the endpoint for showing genres/books by genre
+     * @param genre is optional and if entered shows a list of books by that genre, otherwise just a list of genres
+     * @return ModelAndview with a book list, genre and genre list
+     */
     @RequestMapping("/genre")
     public ModelAndView showBooksByGenre(@RequestParam(required = false) String genre) {
         List<Book> bookListByGenre = new ArrayList<>();
         Set<String> genres = new HashSet<>();
         List<String> genreList = new ArrayList<>();
 
+        // If no genre-parameter is entered, a list of available genres is presented
         if (genre == null) {
             for (Book book : books) {
                 genres.add(book.getGenre());
             }
             genreList.addAll(genres);
         }
+        // Otherwise a list of books that matches the genre
         else {
             for (Book book : books) {
                 if (book.getGenre().toLowerCase().equals(genre)) {
