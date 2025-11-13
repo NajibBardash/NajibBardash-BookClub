@@ -3,7 +3,7 @@ After you've cloned the repo locally:
   2. in the terminal run the script by entering ./run_bookclub.sh
   3. After the script has completed, go to a web-browser and try the different options:
   4. localhost:8080/home
-  5. localhost:8080/booklist
+  5. localhost:8080/books
   6. localhost:8080/genre
   7. localhost:8080/genre?genre=classics
   8. localhost:8080/genre?genre=biographics
